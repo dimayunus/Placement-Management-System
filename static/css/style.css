@@ -1,0 +1,114 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('/static/img/bg.jpg'); /* Add the path to your background image */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative; /* Set position to relative */
+}
+
+.background-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ADD8E6; /* Light blue color */
+    z-index: -1; /* Ensure it's behind other elements */
+    opacity: 0.6; /* Adjust opacity as needed */
+}
+
+.button-container {
+    position: absolute;
+    top: calc(50% - 20px); /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    display: grid; /* Use CSS grid */
+    grid-template-columns: repeat(2, auto); /* Adjust grid columns */
+    gap: 10px; /* Add gap between grid items */
+}
+
+.login-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none; /* Remove border */
+    border-radius: 20px;
+    background-color: #FFF; /* White color */
+    color: #000; /* Black color */
+}
+
+.login-button:hover {
+    background-color: #DDD; /* Light gray on hover */
+}
+
+/* Lines covering the buttons */
+.login-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.1) 25%, transparent 25%, transparent 50%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1) 75%, transparent 75%, transparent);
+    background-size: 20px 20px;
+    z-index: -1;
+}
+
+.student-login-button {
+    color: #4CAF50; /* Green text color */
+    font-weight: bold;
+}
+
+.faculty-login-button {
+    color: #008CBA; /* Blue text color */
+    font-weight: bold;
+}
+
+h1 {
+    position: absolute;
+    top: 20px; /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    color: white; /* Set text color */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Set font family */
+    font-size: 3em; /* Set font size */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow for better visibility */
+    letter-spacing: 2px; /* Adjust letter spacing */
+    display: inline-block;
+    padding: 5px 10px;
+    transition: transform 0.3s ease-in-out;
+}
+
+
+
+h2 {
+    position: absolute;
+    top: calc(20px + 3em + 20px); /* Adjust as needed */
+    right: 20px; /* Adjust as needed */
+    color: white; /* Set text color */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Set font family */
+    font-size: 1.5em; /* Set font size */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add text shadow for better visibility */
+}
+
+.left-text {
+    position: absolute;
+    top: 120px; /* Adjust as needed */
+    left: 40px; /* Adjust as needed */
+    color: black; /* Set text color */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Set font family */
+    font-size: 1em; /* Set font size */
+    text-shadow: black; /* Remove text shadow */
+    z-index: 1; /* Ensure text appears above other elements */
+    max-width: calc(100% - 500px); /* Adjust width to prevent overlapping */
+}
+
+/* Logo */
+.logo {
+    position: absolute;
+    top: 20px; /* Adjust as needed */
+    left: 20px; /* Adjust as needed */
+    width: 100px; /* Adjust width */
+    height: auto; /* Maintain aspect ratio */
+}

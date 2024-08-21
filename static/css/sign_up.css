@@ -1,0 +1,64 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px 0; /* Add spacing at the top and bottom of the page */
+    padding: 0;
+    background-image: url('/img/stu.jfif');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-container {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 400px; /* Make the box wider */
+    max-width: 90%; /* Limit the width to ensure responsiveness */
+}
+
+.login-container h2 {
+    margin-top: 0;
+}
+
+.form-group {
+    margin-bottom: 15px; /* Increase spacing between form groups */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.login-container input[type="text"],
+.login-container input[type="password"],
+.login-container input[type="submit"],
+.login-container select {
+    width: calc(100% - 22px); /* Adjusted for input padding and border */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.login-container input[type="submit"] {
+    background-color: red;
+    color: #fff;
+    cursor: pointer;
+}
+
+.login-container input[type="submit"]:hover {
+    background-color: darkred;
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 100px; /* Adjust the width as needed */
+    height: auto;
+}
