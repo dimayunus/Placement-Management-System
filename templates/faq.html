@@ -1,0 +1,136 @@
+{% extends 'base_stu.html' %}
+
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for( 'static' , filename = 'css/style_student.css' ) }}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            margin-top: 50px;
+            margin-left: 200px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .question {
+            font-weight: bold;
+            color: #007bff;
+        }
+
+        .answer {
+            color: #333;
+            margin-top: 5px;
+        }
+
+        .faq-item:last-child {
+            margin-bottom: 0;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Frequently Asked Questions</h1>
+        <div class="faq-item">
+            <div class="question">1. How do I register for placement opportunities?</div>
+            <div class="answer">You can register for placement opportunities by logging into our placement portal with your student credentials and completing the registration process.</div>
+        </div>
+        <div class="faq-item">
+            <div class="question">2. What documents are required for placement registration?</div>
+            <div class="answer">Typically, you'll need your updated resume, academic transcripts, identification documents, and any relevant certifications or achievements.</div>
+        </div>
+        <!-- Repeat the above structure for all other questions and answers -->
+        <!-- Additional FAQs -->
+        <div class="faq-item">
+            <div class="question">3. Can I apply for multiple job postings simultaneously?</div>
+            <div class="answer">Yes, you can apply for multiple job postings simultaneously through our placement portal.</div>
+        </div>
+        <div class="faq-item">
+            <div class="question">4. How do I update my profile information?</div>
+            <div class="answer">You can update your profile information by logging into the placement portal and accessing the profile section to edit your details.</div>
+        </div>
+        <div class="faq-item">
+            <div class="question">5. Is there a deadline for applying to job postings?</div>
+            <div class="answer">Yes, each job posting may have a specific deadline mentioned in the job description. It's important to adhere to these deadlines.</div>
+        </div>
+        <div class="faq-item">
+            <div class="question">6. How can I track the status of my job applications?</div>
+            <div class="answer">You can track the status of your job applications through the placement portal. Updates on your application's progress will be provided there.</div>
+        </div>
+        <div class="faq-item">
+            <div class="question">7. What types of companies participate in the placement process?</div>
+            <div class="answer">Various companies across different industries participate, offering a wide range of opportunities for students.</div>
+        </div>
+        <div class="faq-item">
+            <div class="question">8. Are there any pre-placement talks or workshops?</div>
+            <div class="answer">Yes, we regularly organize pre-placement talks and workshops where recruiting companies provide insights into their organization and recruitment process.</div>
+        </div>
+        <div class="faq-item">
+            <div class="question">9. How do I prepare for placement interviews?</div>
+            <div class="answer">We offer support services for resume building and interview preparation to help you prepare effectively.</div>
+        </div>
+        <div class="faq-item">
+            <div class="question">10. Can I view past placement statistics or success stories?</div>
+            <div class="answer">Yes, you can view past placement statistics and success stories through our placement portal for reference.</div>
+        </div>
+        <!-- Additional FAQs -->
+        <div class="faq-item">
+            <div class="question">11. What support services are available for resume building and interview preparation?</div>
+            <div class="answer">We provide support services for resume building and interview preparation, including workshops, one-on-one counseling, and resources to help you prepare effectively.</div>
+        </div>
+        <div class="faq-item">
+            <div class="question">12. How can I get in touch with placement officers for assistance?</div>
+            <div class="answer">You can get in touch with placement officers for assistance through email, phone, or by visiting our office during office hours.</div>
+        </div>
+        <div class="faq-item">
+            <div class="question">13. Are there any eligibility criteria for participating in placement activities?</div>
+            <div class="answer">Eligibility criteria for participating in placement activities may vary depending on the specific requirements of the companies recruiting. However, generally, students in good academic standing are eligible to participate.</div>
+        </div>
+        <div class="faq-item">
+            <div class="question">14. How are job postings categorized, and can I filter them based on my preferences?</div>
+            <div class="answer">Job postings are categorized based on industry, job type, location, etc. You can filter job postings based on your preferences using the search and filter options available on our placement portal.</div>
+        </div>
+        <div class="faq-item">
+            <div class="question">15. Can I schedule mock interviews or practice sessions through the portal?</div>
+            <div class="answer">Yes, you can schedule mock interviews or practice sessions through the portal. We offer mock interview sessions to help you prepare for actual interviews.</div>
+        </div>
+        <div class="faq-item">
+            <div class="question">16. Are there any networking opportunities with alumni or industry professionals?</div>
+            <div class="answer">Yes, we organize networking events with alumni and industry professionals to provide students with opportunities to connect, learn, and explore career options.</div>
+        </div>
+        <div class="faq-item">
+            <div class="question">17. How are internship opportunities advertised and accessed?</div>
+            <div class="answer">Internship opportunities are advertised through our placement portal and other channels. You can access internship listings and apply through the portal.</div>
+        </div>
+        <div class="faq-item">
+            <div class="question">18. Can I provide feedback on my placement experience or suggest improvements?</div>
+            <div class="answer">Yes, we welcome feedback on your placement experience and suggestions for improvements. You can provide feedback through our feedback form or directly to placement officers.</div>
+        </div>
+        <div class="faq-item">
+            <div class="question">19. What measures are in place to ensure fair and transparent placement processes?</div>
+            <div class="answer">We have strict measures in place to ensure fair and transparent placement processes, including equal opportunity policies, clear communication of job requirements, and standardized evaluation criteria.</div>
+        </div>
+        <div class="faq-item">
+            <div class="question">20. How can I stay updated on upcoming placement events and activities?</div>
+            <div class="answer">You can stay updated on upcoming placement events and activities through our placement portal, email notifications, social media channels, and bulletin boards across campus. We also regularly communicate important updates via student newsletters.</div>
+        </div>
+    </div>
+{% endblock %}

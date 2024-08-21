@@ -1,0 +1,48 @@
+{% extends 'base_wel.html' %}
+
+{% block head %} 
+<link rel="stylesheet" href="{{ url_for( 'static' , filename = 'css/style_p.css' ) }}">
+{% endblock %}
+
+{% block body %}
+<main>
+    <section id="new-placement">
+      <h2>Add New Placement</h2>
+      <form id="placement-form" method="POST" action="{{ url_for('save_placement') }}">
+        <div>
+        <label for="company-name">Company Name:</label>
+        <select id="company-name" name="company-name" required>
+            <!-- Options for company names will be added dynamically -->
+        </select>
+    </div>
+        <label for="designation">Designation:</label>
+      
+        <input type="text" id="designation" name="designation" required>
+
+        
+        <label for="branch">Branch:</label>
+        <input type="text" id="branch" name="branch" required>
+        
+        <label for="rskill">Required skill:</label>
+        <input type="text" id="rskill" name="rskill" required>
+        
+        <label for="cutoff">Cutoff:</label>
+        <input type="text" id="cutoff" name="cutoff" required>
+        
+        <label for="vacancies">Vacancies:</label>
+        <input type="text" id="vacancies" name="vacancies" required>
+        <div>
+        <label for="date-of-drive">Application deadline:</label>
+        <input type="date" id="date-of-drive" name="date-of-drive" required>
+        
+        <label for="salary-package">Salary package:</label>
+    </div>
+        <input type="text" id="salary-package" name="salary-package" required>
+        
+        <button type="submit">Save</button>
+    </form>
+    
+    </section>
+</main>
+<script src="{{ url_for( 'static' , filename = 'js/script_p.js' ) }}"></script>
+{% endblock %}

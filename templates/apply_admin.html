@@ -1,0 +1,90 @@
+{% extends 'base_wel.html' %}
+
+{% block head %} 
+<link rel="stylesheet" href="{{ url_for( 'static' , filename = 'css/style_w.css' ) }}">
+{% endblock %}
+
+{% block body %}
+<main>
+    <h2>Student Applied List</h2>
+    <section id="placement-details">
+        {% if applied_placements %}
+        <table id="placement-table">
+            <thead>
+                <tr>
+                    <th>SNO</th>
+                    <th>Student Name</th>
+                    <th>Company Name</th>
+                    <th>Designation</th>
+                    <th>Branch</th>
+                    <th>Salary Package</th>
+                    <th>Eligibility</th>
+                    <th>Status</th>
+                    <th>Actions</th> <!-- New column for actions -->
+                </tr>
+            </thead>
+            <tbody>
+                {% for applied_placement in applied_placements %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ applied_placement.student_name }}</td>
+                    <td>{{ applied_placement.company_name }}</td>
+                    <td>{{ applied_placement.designation }}</td>
+                    <td>{{ applied_placement.branch }}</td>
+                    <td>{{ applied_placement.salary_package }}</td>
+                    <td class="{% if applied_placement.eligibility == 'Eligible' %}eligible{% else %}not-eligible{% endif %}">{{ applied_placement.eligibility }}</td>
+                    <td class="status">{{ applied_placement.status }}</td> <!-- Add class for status cell -->
+                    <td>
+                        <button class="edit-btn" data-placement-id="{{ applied_placement.id }}" data-student-name="{{ applied_placement.student_name }}">Edit</button>
+                        <!-- Edit button for each row -->
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No Students added.</p>
+        {% endif %}
+    </section>
+</main>
+
+<script src="{{ url_for( 'static' , filename = 'js/script.js' ) }}"></script>
+
+<script>
+    // JavaScript to handle editing of status
+    document.addEventListener('DOMContentLoaded', function() {
+    const editButtons = document.querySelectorAll('.edit-btn');
+    editButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const studentId = this.getAttribute('data-placement-id');
+            const studentName = this.getAttribute('data-student-name'); // Add this line
+            const newStatus = prompt('Enter new status:');
+            if (newStatus !== null) {
+                // Send AJAX request to update the status
+                fetch(`/update_status/${studentId}`, {
+                    method: 'POST',
+                    body: JSON.stringify({ student_name: studentName, status: newStatus }), // Include student name in JSON data
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(response => {
+                    if (response.ok) {
+                        // Status updated successfully, reload the page to reflect changes
+                        location.reload();
+                    } else {
+                        // Handle error
+                        alert('Failed to update status.');
+                    }
+                }).catch(error => {
+                    console.error('Error updating status:', error);
+                    alert('Failed to update status. Please try again later.');
+                });
+            }
+        });
+    });
+});
+
+</script>
+
+
+{% endblock %}

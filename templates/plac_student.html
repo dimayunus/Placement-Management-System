@@ -1,0 +1,54 @@
+{% extends 'base_stu.html' %}
+
+{% block head %} 
+<link rel="stylesheet" href="{{ url_for( 'static' , filename = 'css/style_student.css' ) }}">
+{% endblock %}
+
+{% block body %}
+<main>
+    <h2>Placement List</h2>
+    <section id="placement-details">
+        {% if placements %}
+        <table id="placement-table">
+            <thead>
+                <tr>
+                    <th>Company Name</th>
+                    <th>Designation</th>
+                    <th>Branch</th>
+                    <th>Required skill</th>
+                    <th>Cuttoff</th>
+                    <th>Vacancies</th>
+                    <th>Deadline</th>
+                    <th>Salary Package</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for placement in placements %}
+                <tr>
+                    <td>{{ placement.company_name }}</td>
+                    <td>{{ placement.designation }}</td>
+                    <td>{{ placement.branch }}</td>
+                    <td>{{ placement.rskill }}</td>
+                    <td>{{ placement.cutoff }}</td>
+                    <td>{{ placement.vacancies }}</td>
+                    <td>{{ placement.date_of_drive }}</td>
+                    <td>{{ placement.salary_package }}</td>
+                    <td>
+                        <form action="{{ url_for('apply_placement', placement_id=placement.id) }}" method="POST">
+                            <button type="submit">Apply</button>
+                        </form>
+                    </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>No placements added.</p>
+{% endif %}
+</section>
+</main>
+
+
+<script src="{{ url_for( 'static' , filename = 'js/student.js' ) }}"></script>
+{% endblock %}

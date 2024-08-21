@@ -1,0 +1,15 @@
+{% extends 'base_wel.html' %}
+
+{% block head %} 
+<link rel="stylesheet" href="{{ url_for( 'static' , filename = 'css/style_w.css' ) }}">
+{% endblock %}
+
+
+{% block body %}
+<main>
+    <section id="welcome-section">
+      <h2>Welcome</h2>
+    </section>
+  </main>
+<script src="{{ url_for( 'static' , filename = 'js/script.js' ) }}"></script>
+{% endblock %}

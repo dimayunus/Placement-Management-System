@@ -1,0 +1,58 @@
+{% extends 'base_wel.html' %}
+
+{% block head %} 
+<link rel="stylesheet" href="{{ url_for( 'static' , filename = 'css/style_w.css' ) }}">
+{% endblock %}
+
+{% block body %}
+<main>
+    <h2>Student List</h2>
+    <section id="placement-details">
+        {% if students %}
+        <table id="placement-table">
+            <thead>
+                <tr>
+                    <th>SNO</th>
+                    <th>Student Name</th>
+                    <th>Gender</th>
+                    <th>DOB</th>
+                    <th>Contact No</th>
+                    <th>Email ID</th>
+                    <th>Skill</th>
+                    <th>Student ID</th>
+                    <th>Department</th>
+                    <th>cgpa</th>
+                    <th>resume</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in students %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ student.student_name }}</td>
+                    <td>{{ student.gender }}</td>
+                    <td>{{ student.date_of_birth }}</td>
+                    <td>{{ student.contact_no }}</td>
+                    <td>{{ student.email }}</td>
+                    <td>{{ student.skill }}</td>
+                    <td>{{ student.student_id }}</td>
+                    <td>{{ student.department }}</td>
+                    <td>{{ student.cgpa }}</td>
+                    <td>
+                        {% if student.resume_filename %}
+                        <a href="/static/resumes/resume.pdf" target="_blank" class="btn btn-primary">View Resume</a>
+                        {% else %}
+                            No resume available
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No Students added.</p>
+        {% endif %}
+    </section>
+</main>
+<script src="{{ url_for( 'static' , filename = 'js/script.js' ) }}"></script>
+{% endblock %}

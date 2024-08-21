@@ -1,0 +1,50 @@
+{% extends 'base_stu.html' %}
+
+{% block head %} 
+<link rel="stylesheet" href="{{ url_for( 'static' , filename = 'css/style_student.css' ) }}">
+{% endblock %}
+
+{% block body %}
+<main>
+    <h2>Placement List</h2>
+    <section id="placement-details">
+        {% if applied_placements %}
+        <table id="placement-table">
+            <thead>
+                <tr>
+                    <th>Company Name</th>
+                    <th>Designation</th>
+                    <th>Branch</th>
+                    <th>Required skill</th>
+                    <th>Cuttoff</th>
+                    <th>Vacancies</th>
+                    <th>Deadline</th>
+                    <th>Salary Package</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for applied_placement in applied_placements %}
+                <tr>
+                    
+                    <td>{{ applied_placement.company_name }}</td>
+                    <td>{{ applied_placement.designation }}</td>
+                    <td>{{ applied_placement.branch }}</td>
+                    <td>{{ applied_placement.rskill }}</td>
+                    <td>{{ applied_placement.cutoff }}</td>
+                    <td>{{ applied_placement.vacancies }}</td>
+                    <td>{{ applied_placement.date_of_drive }}</td>
+                    <td>{{ applied_placement.salary_package }}</td>
+                    <td>{{ applied_placement.status }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No placements applied.</p>
+        {% endif %}
+    </section>
+</main>
+
+<script src="{{ url_for( 'static' , filename = 'js/student.js' ) }}"></script>
+{% endblock %}

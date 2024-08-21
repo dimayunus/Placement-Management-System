@@ -1,0 +1,21 @@
+{% extends 'base_stu.html' %}
+
+{% block head %} 
+<link rel="stylesheet" href="{{ url_for( 'static' , filename = 'css/style_student.css' ) }}">
+{% endblock %}
+
+{% block body %}
+
+<main>
+    <section id="submit-query">
+        <h2>Submit Query</h2>
+        <form id="query-form" method="POST" action="{{ url_for('submit_query') }}">
+            <label for="query">Query:</label>
+            <textarea id="query" name="query" rows="4" cols="50" placeholder="Enter your query" required></textarea><br>
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+</main>
+
+
+{% endblock %}

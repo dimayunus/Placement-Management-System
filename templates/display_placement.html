@@ -1,0 +1,68 @@
+{% extends 'base_wel.html' %}
+
+{% block head %} 
+<link rel="stylesheet" href="{{ url_for( 'static' , filename = 'css/style_w.css' ) }}">
+{% endblock %}
+
+
+{% block body %}
+<main>
+    <h2>Placement List</h2>
+    <section id="placement-details">
+        {% if placements %}
+        <table id="placement-table">
+            <thead>
+                <tr>
+                    <th>Company Name</th>
+                    <th>Designation</th>
+                    <th>Branch</th>
+                    <th>Required skill</th>
+                    <th>Cuttoff</th>
+                    <th>Vacancies</th>
+                    <th>Deadline</th>
+                    <th>Salary Package</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for placement in placements %}
+                <tr>
+                    <td>{{ placement.company_name }}</td>
+                    <td>{{ placement.designation }}</td>
+                    <td>{{ placement.branch }}</td>
+                    <td>{{ placement.rskill }}</td>
+                    <td>{{ placement.cutoff }}</td>
+                    <td>{{ placement.vacancies }}</td>
+                    <td>{{ placement.date_of_drive }}</td>
+                    <td>{{ placement.salary_package }}</td>
+                    <td><form action="/delete_placement/{{ placement.id }}" method="POST">
+                        <button type="submit">Delete</button>
+                    </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No placements added.</p>
+        {% endif %}
+    </section>
+</main>
+
+<script src="{{ url_for( 'static' , filename = 'js/script.js' ) }}"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    // Add event listener to delete buttons
+    const deleteButtons = document.querySelectorAll(".delete-button");
+    deleteButtons.forEach(button => {
+        button.addEventListener("click", function() {
+            const row = button.closest("tr");
+            const title = row.cells[0].textContent;
+            const companyName = row.cells[1].textContent;
+            // You can send an AJAX request to delete the placement here
+            // Or you can redirect to a Flask route that handles deletion
+        });
+    });
+});
+</script>
+{% endblock %}

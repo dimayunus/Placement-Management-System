@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+<link rel="stylesheet" href="{{ url_for( 'static' , filename = 'css/style.css' ) }}">
+{% endblock %}
+
+{% block body %} 
+<div class="background-container"></div>
+
+<img src="/static/img/scms.jpg" alt="Logo" class="logo">
+
+<h1>Placement Portal</h1>
+
+<div class="button-container" id="button-container">
+    <button class="login-button student-login-button" onclick="redirectToStudentLogin()">Student Login</button>
+    <button class="login-button faculty-login-button" onclick="redirectToFacultyLogin()">Faculty Login</button>
+</div>
+
+<div class="left-text">
+
+</div>
+
+<script src="{{ url_for( 'static' , filename = 'js/script.js' ) }}"></script>
+{% endblock %}

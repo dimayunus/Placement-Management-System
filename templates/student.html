@@ -1,0 +1,61 @@
+{% extends 'base_stu.html' %}
+
+{% block head %} 
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style_student.css') }}">
+{% endblock %}
+
+{% block body %}
+<main>
+    <section id="update-profile">
+        <h2>Update Profile</h2>
+        <form id="profile-form" method="POST" action="{{ url_for('student') }}" enctype="multipart/form-data">
+            <label for="student-name">Student Name:</label>
+            <input type="text" id="student-name" name="student-name" value="{{ student.student_name if student else '' }}" required>
+            
+            <label for="gender">Gender:</label>
+            <input type="text" id="gender" name="gender" value="{{ student.gender if student else '' }}" required>
+           
+            <label for="date-of-birth">Date Of Birth:</label>
+            <input type="date" id="date-of-birth" name="date-of-birth" value="{{ student.date_of_birth if student else '' }}" required>
+           
+            <label for="contact-no">Contact No:</label>
+            <input type="text" id="contact-no" name="contact-no" value="{{ student.contact_no if student else '' }}" required>
+            
+            <label for="email-id">Email Id:</label>
+            <input type="text" id="email-id" name="email-id" value="{{ student.email if student else '' }}" required>
+
+            <label for="skill">Skill:</label>
+            <input type="text" id="skill" name="skill" value="{{ student.skill if student else '' }}" required>
+
+            <label for="student-id">Student ID:</label>
+            <input type="text" id="student-id" name="student-id" value="{{ student.student_id if student else '' }}" required>
+
+            <label for="student-department">Department:</label>
+            <input type="text" id="student-department" name="student-department" value="{{ student.department if student else '' }}" required>
+            
+            <label for="year-graduation">Year Of Graduation:</label>
+            <input type="text" id="year-graduation" name="year-graduation" value="{{ student.year_of_graduation if student else '' }}" required>
+            
+            <label for="cgpa">CGPA:</label>
+            <input type="text" id="cgpa" name="cgpa" value="{{ student.cgpa if student else '' }}" required>
+            
+            <label for="sslc">Class 10%:</label>
+            <input type="text" id="sslc" name="sslc" value="{{ student.sslc if student else '' }}" required>
+
+            <label for="hsc">Class 12%:</label>
+            <input type="text" id="hsc" name="hsc" value="{{ student.hsc if student else '' }}" required>
+            
+            <div class="form-group">
+                <label for="resume">Resume</label>
+                <input type="file" class="form-control-file" id="resume" name="resume">
+            </div>
+           
+            <div>
+                <button type="submit">Update</button>
+            </div>
+        </form>
+    </section>
+</main>
+
+<script src="{{ url_for('static', filename='js/student.js') }}"></script>
+{% endblock %}

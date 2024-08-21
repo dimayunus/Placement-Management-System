@@ -1,0 +1,22 @@
+{% extends 'base_stu.html' %}
+
+{% block head %} 
+<link rel="stylesheet" href="{{ url_for( 'static' , filename = 'css/style_w.css' ) }}">
+{% endblock %}
+
+{% block body %}
+<main>
+    <h2>Notifications</h2>
+    <section id="notification-list">
+        {% if notifications %}
+            <ul>
+                {% for notification in notifications %}
+                    <li>{{ notification.message }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No notifications available.</p>
+        {% endif %}
+    </section>
+</main>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base_wel.html' %}
+
+{% block head %} 
+<link rel="stylesheet" href="{{ url_for( 'static' , filename = 'css/style_w.css' ) }}">
+{% endblock %}
+
+{% block body %}
+<main>
+    <section id="company-details">
+        {% if companies %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Company Name</th>
+                    <th>State</th>
+                    <th>City</th>
+                    <th>Pincode</th>
+                    <th>District</th>
+                    <th>Contact No</th>
+                    <th>Email ID</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for company in companies %}
+                <tr>
+                    <td>{{ company.company_name }}</td>
+                    <td>{{ company.state }}</td>
+                    <td>{{ company.city }}</td>
+                    <td>{{ company.pincode }}</td>
+                    <td>{{ company.district }}</td>
+                    <td>{{ company.contact_no }}</td>
+                    <td>{{ company.email }}</td>
+                    <td>
+                        <form action="/delete_company/{{ company.id }}" method="post">
+                            <button type="submit">Delete</button>
+                        </form>
+                        <form action="/notify_company/{{ company.id }}" method="post">
+                            <button type="submit">Notify</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No companies added.</p>
+        {% endif %}
+    </section>
+</main>
+{% endblock %}

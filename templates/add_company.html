@@ -1,0 +1,34 @@
+{% extends 'base_wel.html' %}
+
+{% block head %} 
+<link rel="stylesheet" href="{{ url_for( 'static' , filename = 'css/style_w.css' ) }}">
+{% endblock %}
+
+{% block body %}
+<main>
+    <section id="new-company">
+      <h2>Add New Company</h2>
+      <form id="company-form" method="POST" action="{{ url_for('add_company') }}"> <!-- Specify the method and action -->
+        <div>
+          <label for="company-name">Company Name:</label>
+          <input type="text" id="company-name" name="company-name" required>
+          <label for="state">State:</label>
+        </div>
+
+        <input type="text" id="state" name="state" required>
+        <label for="city">City:</label>
+        <input type="text" id="city" name="city" required>
+        <label for="district">District:</label>
+        <input type="text" id="district" name="district" required>
+        <label for="pincode">Pincode:</label>
+        <input type="text" id="pincode" name="pincode" required>
+        <label for="contact-no">Contact No:</label>
+        <input type="text" id="contact-no" name="contact-no" required>
+        <label for="email-id">Email ID:</label>
+        <input type="email" id="email-id" name="email-id" required>
+        <button type="submit">Add Company</button>
+      </form>
+    </section>
+</main>
+<script src="{{ url_for( 'static' , filename = 'js/script.js' ) }}"></script>
+{% endblock %}

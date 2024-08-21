@@ -1,0 +1,28 @@
+{% extends 'base_wel.html' %}
+
+{% block head %} 
+<link rel="stylesheet" href="{{ url_for( 'static' , filename = 'css/style_w.css' ) }}">
+{% endblock %}
+
+{% block body %}
+<main>
+  <section id="statistics">
+    <div class="statistics-box">
+      <h2>Total Companies</h2>
+      <p>{{ total_companies }}</p>
+    </div>
+    <div class="statistics-box">
+      <h2>Total Vacancies</h2>
+      <p>{{ total_vacancies }}</p>
+    </div>
+    <div class="statistics-box">
+      <h2>Total Students</h2>
+      <p>{{ total_students }}</p>
+    </div>
+    <div class="statistics-box">
+      <h2>Students Applied</h2>
+      <p>{{ total_applied_students }}</p>
+    </div>
+  </section>
+</main>
+{% endblock %}
