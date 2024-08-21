@@ -7,8 +7,9 @@ Student Management: Add, update, and delete student records.
 Job Postings: Companies can post job openings, and students can view and apply for them.
 Application Tracking: Track the status of student applications and company responses.
 Admin Dashboard: Comprehensive dashboard for administrators to manage all aspects of the placement process.
-Tech Stack
-Frontend: HTML, CSS, JavaScript
-Backend: Flask
-Database: MySQLAlchemy
-Templating Engine: Jinja2
+
+#Tech Stack
+-Frontend: HTML, CSS, JavaScript
+-Backend: Flask
+-Database: MySQLAlchemy
+-Templating Engine: Jinja2
